@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NATASHA · Shallow Features for Low-Resource NMT</title>
+  <meta name="description" content="NATASHA improves low-resource neural machine translation by teaching deep models with shallow features. A NLPCC 2024 paper by Yanming Sun and collaborators.">
+  <meta name="theme-color" content="#392c50">
+  <link rel="canonical" href="https://ymsunny.github.io/NATASHA/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="NATASHA · Shallow features. Stronger translation.">
+  <meta property="og:description" content="A simple training strategy for low-resource NMT. Five translation tasks. 38.2 BLEU on IWSLT14 De–En with CipherDAug.">
+  <meta property="og:url" content="https://ymsunny.github.io/NATASHA/">
+  <meta property="og:image" content="https://ymsunny.github.io/NATASHA/assets/social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NATASHA · Shallow features. Stronger translation.">
+  <meta name="twitter:description" content="Teaching deep translation models with shallow features. NLPCC 2024.">
+  <meta name="twitter:image" content="https://ymsunny.github.io/NATASHA/assets/social-preview.png">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preload" href="assets/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js" defer></script>
+  <script src="script.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","name":"Understanding and Improving Low-Resource Neural Machine Translation with Shallow Features","headline":"Understanding and Improving Low-Resource Neural Machine Translation with Shallow Features","url":"https://ymsunny.github.io/NATASHA/","sameAs":"https://doi.org/10.1007/978-981-97-9437-9_18","identifier":"10.1007/978-981-97-9437-9_18","datePublished":"2024-11-01","author":[{"@type":"Person","name":"Yanming Sun"},{"@type":"Person","name":"Xuebo Liu"},{"@type":"Person","name":"Derek F. Wong"},{"@type":"Person","name":"Yuchu Lin"},{"@type":"Person","name":"Bei Li"},{"@type":"Person","name":"Runzhe Zhan"},{"@type":"Person","name":"Lidia S. Chao"},{"@type":"Person","name":"Min Zhang"}],"publisher":{"@type":"Organization","name":"Springer Nature Singapore"},"pagination":"227–239"}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="header">
+    <div class="container nav-wrap"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true">N</span>NATASHA<span class="brand-meta">NLPCC 2024</span></a>
+    <nav aria-label="Main navigation"><a href="#insight">Insight</a><a href="#method">Method</a><a href="#results">Results</a><a href="#citation">Cite</a><a class="nav-paper" href="assets/natasha-paper.pdf" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a></nav></div>
+  </header>
+  <main id="main">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="status-dot"></span> NLPCC 2024 <span class="eyebrow-divider">/</span> Low-resource translation</div>
+        <p class="project-name">NATASHA</p>
+        <h1 id="hero-title">Shallow features.<br><span>Stronger translation.</span></h1>
+        <p class="paper-title">Understanding and Improving Low-Resource Neural Machine Translation with Shallow Features</p>
+        <p class="hero-description">A simple way to teach deep translation models what shallow models do best.</p>
+        <div class="actions"><a class="button primary" href="assets/natasha-paper.pdf" target="_blank" rel="noopener"><span aria-hidden="true">↗</span> Read the paper</a><a class="button secondary" href="#method">Explore the method <span aria-hidden="true">↓</span></a></div>
+        <div class="publication-note">NLPCC 2024 · LNAI 15361 · pp. 227–239</div>
+      </div>
+      <div class="hero-visual" aria-label="NATASHA transfers shallow features to a deep model through distilled training data">
+        <div class="visual-label"><span class="mini-dot"></span> A small teacher. A deeper learner.</div>
+        <div class="visual-models">
+          <div class="model-column shallow"><div class="layer-stack"><i></i><i></i><i></i></div><span class="model-label">Shallow model</span><span class="model-description">Captures simple patterns</span></div>
+          <div class="transfer"><span>distill</span><svg viewBox="0 0 88 30" aria-hidden="true"><path d="M2 15H80M68 4L81 15 68 26" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>then blend</span></div>
+          <div class="model-column deep"><div class="layer-stack"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="model-label">Deep model</span><span class="model-description">Learns richer representations</span></div>
+        </div>
+        <div class="visual-dataset"><span class="dataset-chip original">Original data</span><span class="plus">+</span><span class="dataset-chip distilled">Shallow-distilled data</span></div>
+        <div class="visual-footer"><span>No architecture changes</span><span>No additional corpora</span></div>
+        <span class="visual-orbit" aria-hidden="true"></span>
+      </div>
+    </section>
+    <section class="author-section container" aria-label="Authors and affiliations">
+      <p class="authors"><a href="https://ymsunny.github.io/" target="_blank" rel="noopener">Yanming Sun<sup>1</sup></a><span>Xuebo Liu<sup>2</sup></span><a href="mailto:derekfw@um.edu.mo">Derek F. Wong<sup>1,†</sup></a><span>Yuchu Lin<sup>3</sup></span><span>Bei Li<sup>4</sup></span><span>Runzhe Zhan<sup>1</sup></span><span>Lidia S. Chao<sup>1</sup></span><span>Min Zhang<sup>2</sup></span></p>
+      <p class="affiliations"><span><sup>1</sup> University of Macau</span><span><sup>2</sup> Harbin Institute of Technology, Shenzhen</span><span><sup>3</sup> DeepTranx</span><span><sup>4</sup> Northeastern University</span></p>
+      <p class="corresponding">† Corresponding author</p>
+    </section>
+    <section class="metrics container" aria-label="Key results">
+      <div><strong>5</strong><span>low-resource translation tasks</span></div>
+      <div><strong>+1.0–1.6<span class="metric-unit"> BLEU</span></strong><span>best NATASHA vs. best vanilla model¹</span></div>
+      <div><strong>38.2<span class="metric-unit"> BLEU</span></strong><span>IWSLT14 De–En with CipherDAug²</span></div>
+    </section>
+    <p class="metric-note container">¹ Best encoder configuration per task, Table 2. ² Combined result, Table 3. Scores are from the paper.</p>
+
+    <section class="section container" id="insight">
+      <div class="section-heading"><span class="section-number">01 / THE INSIGHT</span><h2>Depth helps.<br>Shallow features still matter.</h2><p>In low-resource settings, simply adding encoder layers gives diminishing returns. Sentence-level analysis reveals what aggregate scores can hide.</p></div>
+      <div class="insight-grid">
+        <article class="insight-card"><span class="card-tag">A hidden strength</span><h3>Simple text often favors a shallow encoder.</h3><p>For a 1-layer vs. 6-layer encoder comparison, the shallow model wins on 54%, 52%, and 60% of test sentences in En–Nso, En–Af, and De–En, respectively.</p><div class="ratio-bars" aria-label="Shallow model wins on test sentences: En–Nso 54 percent, En–Af 52 percent, De–En 60 percent"><div><span>En–Nso</span><i style="--ratio:54%"></i><strong>54%</strong></div><div><span>En–Af</span><i style="--ratio:52%"></i><strong>52%</strong></div><div><span>De–En</span><i style="--ratio:60%"></i><strong>60%</strong></div></div><p class="source">Table 1 · sentence-level BLEU comparison, E1 vs. E6</p></article>
+        <article class="insight-card tinted"><span class="card-tag">The opportunity</span><h3>Teach the deep model these patterns first.</h3><p>Shallow encoders excel on shorter sentences and sentences with smaller word embedding norms. Their distilled outputs offer a way to pass these useful patterns to a deeper model.</p><div class="insight-equation"><span>Shallow strengths</span><b aria-hidden="true">+</b><span>Deep capacity</span></div><p class="source">Section 3.3 · Figure 3</p></article>
+      </div>
+      <div class="figure-grid">
+        <figure><a href="assets/encoder-depth.png" class="figure-link" data-figure="true" data-caption="Figure 1. BLEU scores as encoder depth varies. Stars mark NATASHA results." aria-label="Enlarge encoder depth figure"><img src="assets/encoder-depth.png" alt="Figure 1: three low-resource tasks show limited benefit from increasing encoder depth to 12; NATASHA results are marked with stars." width="628" height="488" loading="lazy"><span class="enlarge-label">Enlarge ↗</span></a><figcaption><b>Figure 1.</b> More depth does not guarantee better translation.</figcaption></figure>
+        <figure><a href="assets/linguistic-analysis.png" class="figure-link" data-figure="true" data-caption="Figure 3. Sentence length and embedding norms for groups best translated by E1, E3 and E6." aria-label="Enlarge linguistic analysis figure"><img src="assets/linguistic-analysis.png" alt="Figure 3: distributions of sentence length and word embedding norms by the encoder depth with the best translation." width="716" height="572" loading="lazy"><span class="enlarge-label">Enlarge ↗</span></a><figcaption><b>Figure 3.</b> Shallow encoders handle simpler text effectively.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="method-band" id="method"><div class="container section">
+      <div class="section-heading"><span class="section-number">02 / THE METHOD</span><h2>Distill. Blend. Train.</h2><p>NATASHA transfers shallow features through sequence-level knowledge distillation, using the same parallel corpus and model architecture.</p></div>
+      <div class="method-flow">
+        <article><span class="step-number">01</span><h3>Train a shallow teacher</h3><p>Fit a shallow NMT model on the original parallel corpus <i>D</i>.</p><div class="flow-token"><span class="token-dot"></span> Original parallel data</div></article>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <article><span class="step-number">02</span><h3>Extract shallow features</h3><p>Translate the training sources with that model to form a distilled corpus <i>D</i><sub>shallow</sub>.</p><div class="flow-token mint"><span class="token-dot"></span> Shallow-distilled targets</div></article>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <article><span class="step-number">03</span><h3>Train a deeper learner</h3><p>Blend original and distilled pairs, then train the deep model on the hybrid corpus.</p><div class="flow-token mixed"><span class="token-dot"></span> D ∪ D<sub>shallow</sub></div></article>
+      </div>
+      <div class="method-details"><p><b>Two configurations.</b> NATASHA-E6 learns from an E3 teacher; NATASHA-E12 learns from an E6 teacher. The decoder remains 6 layers in both cases.</p><a class="text-link" href="assets/framework.png" data-figure="true" data-caption="Figure 4. The original NATASHA framework from the paper.">View the paper’s framework <span aria-hidden="true">↗</span></a></div>
+      <div class="method-benefits"><span>Same model architecture</span><span>No extra corpora</span><span>Compatible with regularization</span></div>
+    </div></section>
+
+    <section class="section container" id="results">
+      <div class="section-heading"><span class="section-number">03 / THE EVIDENCE</span><h2>Five tasks.<br>Consistent improvements.</h2><p>Explore the results across parallel corpora from 30K to 610K sentence pairs. Each card compares models at the same encoder depth.</p></div>
+      <div class="result-toolbar"><div class="control-group"><span class="control-label">Encoder depth</span><div class="segmented" role="group" aria-label="Encoder depth"><button type="button" data-depth="6" aria-pressed="true">6 layers</button><button type="button" data-depth="12" aria-pressed="false">12 layers</button></div></div><div class="control-group"><span class="control-label">Metric</span><div class="segmented" role="group" aria-label="Evaluation metric"><button type="button" data-metric="bleu" aria-pressed="true">BLEU ↑</button><button type="button" data-metric="ter" aria-pressed="false">TER ↓</button></div></div><p id="metric-description">BLEU: higher is better.</p></div>
+      <div class="task-grid" id="result-cards" aria-live="polite" aria-atomic="true"><!-- result-cards:start --><article class="task-card"><div class="task-top"><h3>En–Nso</h3><span>30K pairs</span></div><p>English → Northern Sotho</p><div class="score-pair"><div><span>Vanilla E6</span><strong class="baseline-score">24.3</strong></div><span class="score-arrow" aria-hidden="true">→</span><div><span>NATASHA-E6</span><strong class="ours-score">25.9</strong></div></div><div class="gain"><span class="gain-value">+1.6</span> <span class="gain-unit">BLEU</span></div><div class="task-corpus">Autshumato</div></article><article class="task-card"><div class="task-top"><h3>En–Af</h3><span>50K pairs</span></div><p>English → Afrikaans</p><div class="score-pair"><div><span>Vanilla E6</span><strong class="baseline-score">34.6</strong></div><span class="score-arrow" aria-hidden="true">→</span><div><span>NATASHA-E6</span><strong class="ours-score">35.9</strong></div></div><div class="gain"><span class="gain-value">+1.3</span> <span class="gain-unit">BLEU</span></div><div class="task-corpus">Autshumato</div></article><article class="task-card"><div class="task-top"><h3>De–En</h3><span>160K pairs</span></div><p>German → English</p><div class="score-pair"><div><span>Vanilla E6</span><strong class="baseline-score">35.4</strong></div><span class="score-arrow" aria-hidden="true">→</span><div><span>NATASHA-E6</span><strong class="ours-score">36.4</strong></div></div><div class="gain"><span class="gain-value">+1.0</span> <span class="gain-unit">BLEU</span></div><div class="task-corpus">IWSLT14</div></article><article class="task-card"><div class="task-top"><h3>Tr–En</h3><span>190K pairs</span></div><p>Turkish → English</p><div class="score-pair"><div><span>Vanilla E6</span><strong class="baseline-score">18.1</strong></div><span class="score-arrow" aria-hidden="true">→</span><div><span>NATASHA-E6</span><strong class="ours-score">18.7</strong></div></div><div class="gain"><span class="gain-value">+0.6</span> <span class="gain-unit">BLEU</span></div><div class="task-corpus">SETIMES2</div></article><article class="task-card"><div class="task-top"><h3>Ro–En</h3><span>610K pairs</span></div><p>Romanian → English</p><div class="score-pair"><div><span>Vanilla E6</span><strong class="baseline-score">34.1</strong></div><span class="score-arrow" aria-hidden="true">→</span><div><span>NATASHA-E6</span><strong class="ours-score">34.4</strong></div></div><div class="gain"><span class="gain-value">+0.3</span> <span class="gain-unit">BLEU</span></div><div class="task-corpus">WMT16</div></article><!-- result-cards:end --></div>
+      <p class="source">Table 2 · BLEU is case-sensitive, tokenized, 4-gram BLEU (multi-bleu.perl). TER is Translation Edit Rate.</p>
+      <noscript><p>Interactive controls require JavaScript. The default cards and full table below remain available.</p></noscript>
+      <details class="data-details"><summary>View all published results <span>Table 2 · BLEU / TER</span></summary><div class="table-scroll" tabindex="0" role="region" aria-label="Table 2, all published results"><table><caption>Translation performance. Each cell shows BLEU, with TER below.</caption><thead><tr><th scope="col">Model</th><th scope="col">En–Nso<small>30K</small></th><th scope="col">En–Af<small>50K</small></th><th scope="col">De–En<small>160K</small></th><th scope="col">Tr–En<small>190K</small></th><th scope="col">Ro–En<small>610K</small></th></tr></thead><tbody><!-- results-table:start --><tr class=""><th scope="row">E1</th><td>22.8<span>69.2</span></td><td>30.3<span>59.1</span></td><td>34.3<span>52.2</span></td><td>16.3<span>74.4</span></td><td>33.0<span>55.3</span></td></tr><tr class=""><th scope="row">E3</th><td>24.1<span>68.0</span></td><td>33.9<span>54.9</span></td><td>35.1<span>51.6</span></td><td>17.6<span>72.6</span></td><td>34.0<span>54.6</span></td></tr><tr class=""><th scope="row">E6</th><td>24.3<span>68.8</span></td><td>34.6<span>54.4</span></td><td>35.4<span>51.1</span></td><td>18.1<span>72.1</span></td><td>34.1<span>54.8</span></td></tr><tr class=""><th scope="row">E12</th><td>24.3<span>67.7</span></td><td>34.0<span>55.2</span></td><td>34.7<span>51.5</span></td><td>18.0<span>71.8</span></td><td>34.3<span>54.2</span></td></tr><tr class="ours"><th scope="row">NATASHA-E6</th><td>25.9<span>65.0</span></td><td>35.9<span>52.7</span></td><td>36.4<span>49.9</span></td><td>18.7<span>70.3</span></td><td>34.4<span>53.9</span></td></tr><tr class="ours"><th scope="row">NATASHA-E12</th><td>25.4<span>65.7</span></td><td>35.5<span>52.4</span></td><td>37.0<span>49.5</span></td><td>19.4<span>70.0</span></td><td>35.3<span>53.5</span></td></tr><!-- results-table:end --></tbody></table></div></details>
+      <div class="comparison-grid">
+        <article class="comparison-card"><span class="card-tag">Works with existing methods</span><h3>Complementary gains on IWSLT14.</h3><p>Combine shallow features with regularization or data augmentation to improve further.</p><div class="comparison-bars"><div><span>Vanilla Transformer</span><i style="--bar:70.8%"></i><b>35.4</b></div><div><span>BERT-Fused</span><i style="--bar:72.2%"></i><b>36.1</b></div><div><span>R-Drop</span><i style="--bar:74.6%"></i><b>37.3</b></div><div><span>CipherDAug</span><i style="--bar:75%"></i><b>37.5</b></div><div class="ours"><span>NATASHA-E12</span><i style="--bar:74%"></i><b>37.0</b></div><div class="ours"><span>+ R-Drop</span><i style="--bar:75.4%"></i><b>37.7</b></div><div class="ours standout"><span>+ CipherDAug</span><i style="--bar:76.4%"></i><b>38.2</b></div></div><p class="source">Table 3 · BLEU · bar lengths use a shared 0–50 scale.</p></article>
+        <article class="comparison-card"><span class="card-tag">What makes the difference?</span><h3>The shallow teacher matters.</h3><p>Doubling data or using self-distillation brings smaller gains. Shallow features drive the improvement.</p><table class="ablation-table"><caption class="sr-only">Table 4. Ablation on IWSLT14 German–English.</caption><thead><tr><th scope="col">Training variant</th><th scope="col">BLEU</th></tr></thead><tbody><tr><th scope="row">Vanilla E6</th><td>35.4</td></tr><tr><th scope="row">Vanilla E12</th><td>34.7</td></tr><tr><th scope="row">E12 + data upsampling</th><td>35.0</td></tr><tr><th scope="row">E12 + self-distillation</th><td>35.2</td></tr><tr><th scope="row">E12 + tagging shallow data</th><td>36.5</td></tr><tr class="ours"><th scope="row">NATASHA-E12</th><td>37.0</td></tr></tbody></table><p class="source">Table 4 · IWSLT14 De–En. NATASHA-E12 gains +2.3 BLEU over vanilla E12.</p></article>
+      </div>
+    </section>
+
+    <section class="analysis-section"><div class="container section" id="analysis">
+      <div class="section-heading"><span class="section-number">04 / WHY IT WORKS</span><h2>Learn simple patterns.<br>Unlock complex ones.</h2><p>The paper’s training-stage analysis suggests that shallow-distilled data helps the model learn easier patterns early, then improve on harder text.</p></div>
+      <div class="analysis-grid"><article><span class="stage-tag">Early training</span><h3>A stronger start on simple text.</h3><p>Relative to vanilla E6, NATASHA-E12 improves short-sentence BLEU from <b>32.0 to 33.4</b> and high-frequency word accuracy from <b>67.7% to 68.5%</b>. Low-frequency words and long sentences lag at this stage.</p></article><span class="analysis-arrow" aria-hidden="true">→</span><article><span class="stage-tag">Final model</span><h3>Gains extend to harder text.</h3><p>Low-frequency word accuracy rises from <b>45.3% to 47.4%</b>, while long-sentence BLEU improves from <b>31.9 to 33.1</b>. Overall test BLEU reaches <b>37.0</b>, compared with <b>35.4</b> for E6.</p></article></div>
+      <p class="source">Table 5 · IWSLT14 De–En · low frequency: &lt;50 occurrences; high frequency: &gt;200; short sentences: &lt;30 words; long sentences: &gt;50 words.</p>
+    </div></section>
+
+    <section class="section container abstract-section" id="abstract"><span class="section-number">PAPER OVERVIEW</span><h2>A different route to deeper translation.</h2><div class="abstract-copy"><p>Encoder depth is an important design choice in neural machine translation, but its benefits are less reliable when parallel data is scarce. This work systematically compares encoder depths in low-resource settings and finds that shallow encoders often translate simpler sentences more effectively.</p><p>NATASHA uses a shallow model to translate the training sources, then combines the resulting sequence-level distillation data with the original parallel corpus to train a deeper model. Evaluations across five low-resource tasks show consistent improvements, with further gains when combined with R-Drop and CipherDAug. The method needs no architecture changes or additional corpora.</p><p>Further analysis links its benefits to a progression from better learning of simple patterns early in training to improved translation of low-frequency words and long sentences in the final model.</p><a class="text-link" href="https://doi.org/10.1007/978-981-97-9437-9_18" target="_blank" rel="noopener">Publisher record and original abstract <span aria-hidden="true">↗</span></a></div></section>
+
+    <section class="citation-band" id="citation"><div class="container section"><div class="citation-heading"><div><span class="section-number">BUILD ON THIS WORK</span><h2>Cite NATASHA.</h2></div><div class="citation-actions"><a class="button secondary" href="assets/natasha.bib" download>Download .bib</a><button class="button primary" id="copy-citation" type="button">Copy BibTeX</button></div></div><pre><code id="bibtex"><!-- citation:start -->@inproceedings{sun2025natasha,
+  title = {Understanding and Improving Low-Resource Neural Machine Translation with Shallow Features},
+  author = {Sun, Yanming and Liu, Xuebo and Wong, Derek F. and Lin, Yuchu and Li, Bei and Zhan, Runzhe and Chao, Lidia S. and Zhang, Min},
+  booktitle = {Natural Language Processing and Chinese Computing: NLPCC 2024, Proceedings, Part III},
+  series = {Lecture Notes in Computer Science},
+  volume = {15361},
+  pages = {227--239},
+  publisher = {Springer Nature Singapore},
+  year = {2025},
+  doi = {10.1007/978-981-97-9437-9_18},
+  url = {https://doi.org/10.1007/978-981-97-9437-9_18}
+}<!-- citation:end --></code></pre><p class="citation-note">NLPCC 2024 proceedings · print volume published in 2025; first online on 1 November 2024. <span id="copy-status" role="status" aria-live="polite"></span></p></div></section>
+  </main>
+  <footer class="container footer"><div><a class="brand" href="#"><span class="brand-mark" aria-hidden="true">N</span>NATASHA</a><p>Shallow features for low-resource translation.</p></div><div class="footer-links"><a href="assets/natasha-paper.pdf" target="_blank" rel="noopener">Paper ↗</a><a href="https://doi.org/10.1007/978-981-97-9437-9_18" target="_blank" rel="noopener">DOI ↗</a><a href="mailto:nlp2ct.yanming@um.edu.mo">Contact ↗</a></div><p class="footer-note">Figures and results reproduced from the paper. Diagram in the hero is a conceptual illustration.</p></footer>
+  <dialog id="figure-dialog" aria-labelledby="figure-caption"><button class="dialog-close" type="button" aria-label="Close figure">×</button><img id="dialog-image" alt=""><p id="figure-caption"></p><a id="figure-download" href="#" target="_blank" rel="noopener">Open original image ↗</a></dialog>
+</body>
+</html>
